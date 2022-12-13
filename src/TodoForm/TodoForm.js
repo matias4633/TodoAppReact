@@ -11,7 +11,9 @@ function TodoForm() {
     };
     const onCrear = (event) => {
         event.preventDefault(); //Evitar la recarga automatica que provoca el evento.
-        anadirTodo(newTodoValue);
+        if(newTodoValue.trim() !== ''){
+            anadirTodo(newTodoValue);
+        }
         setOpenModal(false);
     };
     const newValue=(event)=>{
