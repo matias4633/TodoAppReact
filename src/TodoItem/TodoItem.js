@@ -20,7 +20,7 @@ function TodoItem(objeto){
             <span
                 onClick={objeto.onCompletado} /* Para poder mandar parametros de debe envolver en una arrow function. */
                 className={`complete ${ (objeto.valor.completo) ? 'completed' :''}`}
-            >C
+            >✓
             </span>
             <p className={`texto ${ (objeto.valor.completo) ? 'textotachado' : ''}`}>{objeto.valor.texto}</p>
             <span className="eliminar" onClick={objeto.onBorrar}>X</span>

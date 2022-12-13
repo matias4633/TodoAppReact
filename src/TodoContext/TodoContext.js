@@ -8,6 +8,8 @@ function Provider(props) {
     const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', []); //Forma de renombrar variebles con los : lo que esta despues de los : es lo que se usa en App
 
     const [valorBusqueda, setValorBusqueda] = React.useState('');
+    const [openModal,setOpenModal]=React.useState(false);
+
 
     const completados = todos.filter((x) => x.completo === true).length;
     const totalTodos = todos.length;
@@ -35,6 +37,17 @@ function Provider(props) {
         saveTodos(nuevosTodos);
     }
 
+    const anadirTodo = (text) => {
+        const nuevosTodos = [...todos];
+        const nuevo={
+            texto:text,
+            completo:false
+        }
+        nuevosTodos.push(nuevo);
+        saveTodos(nuevosTodos);
+    }
+
+
     const borrarTodo = (text) => {
         const nuevosTodos = todos.filter((todo) => todo.texto !== text)
         saveTodos(nuevosTodos);
@@ -51,6 +64,9 @@ function Provider(props) {
             buscados,
             completarTodo,
             borrarTodo,
+            anadirTodo,
+            openModal,
+            setOpenModal
         }}>
             {props.children}
         </Contexto.Provider>

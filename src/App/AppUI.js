@@ -4,15 +4,15 @@ import { TodoSearch } from '../TodoSearch/TodoSearch';
 import { TodoList } from '../TodoList/TodoList';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton/CreateTodoButton';
+import { TodoForm } from "../TodoForm/TodoForm";
 
 import { Contexto } from '../TodoContext/TodoContext';
 import { Modal } from "../Modal/Modal";
 
 
 function AppUI() {
-    const { error, loading, buscados, completarTodo, borrarTodo } = React.useContext(Contexto);
-    const [openModal,setOpenModal]=React.useState(false);
-
+    const { error, loading, buscados, completarTodo, borrarTodo,openModal,setOpenModal } = React.useContext(Contexto);
+    
     return (
         <React.Fragment> {/* Etiqueta invisible entre comillas. Es necesaria para contener al componente que devuelve */}
 
@@ -41,7 +41,7 @@ function AppUI() {
                 })}
             </TodoList>
             
-            {openModal===true && <Modal><p>HOLAAA</p></Modal> }
+            {openModal===true && <Modal><TodoForm/></Modal> }
 
             <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal}  />
 

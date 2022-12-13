@@ -3,6 +3,7 @@ import './App.css';
 import React from "react";
 import { AppUI } from './AppUI';
 import {Provider} from '../TodoContext/TodoContext';
+/* import logo from '../images/logo.png'; */
 
 /* const defaultTodos=[
   {
@@ -26,8 +27,10 @@ function App() {
    },[todos]);   //SE EJECUTA SOLO CUANDO DETECTA UN CAMBIO, SEA ALGUN CAMBIO DE ESTADO O EN CANTIDAD DE ELEMENTOS.
   
  */
+
   return (
     <Provider>
+      
       <AppUI/>
     </Provider>
     
