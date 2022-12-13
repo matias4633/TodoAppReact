@@ -1,0 +1,34 @@
+li{
+    width: 80%;
+    position: relative;
+}
+.texto{
+    padding: 24px;
+    background-color: white;
+    text-align: center;
+}
+.textotachado{
+    text-decoration: line-through;
+}
+.complete{
+    position: absolute;
+    top: 40%;
+    left: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.completed{
+    
+    color: green;
+}
+.eliminar{
+    font-size: large;
+    font-weight: bold;
+    position: absolute;
+    top: 3px;
+    right: 40px;
+    cursor: pointer;
+}
+.eliminar:hover{
+    color: red;
+}

@@ -1,0 +1,21 @@
+.boton{
+    width: 75px;
+    height: 75px;
+    color: white;
+    padding: 0;
+    font-size: 70px;
+    border-radius: 50%;
+    position: fixed;
+    right: 8%;
+    bottom: 10%;
+    background-color: #61dafb;
+    border: 1px solid #61dafb;
+    text-align: center;
+    z-index: 10;
+    
+    transform: rotate(0);
+    transition: .3s ease;
+}
+.boton:hover {
+    transform: rotate(225deg);
+  }
