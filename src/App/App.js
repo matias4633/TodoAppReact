@@ -30,8 +30,10 @@ function App() {
 
   return (
     <Provider>
-      
-      <AppUI/>
+      <div className='contenedor-general'>
+        <AppUI/>
+      </div>
+     
     </Provider>
     
   );

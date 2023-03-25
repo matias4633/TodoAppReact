@@ -14,7 +14,7 @@ function TodoItem(objeto){
     /* const completarTarea=(text) => {
         console.log('Completaste la tarea : '+text); //Dos formas de declarar funciones.
     } */
-
+    let eliminar=require('../images/borrar.png');
     return (
         <li>
             <span
@@ -23,7 +23,7 @@ function TodoItem(objeto){
             >✓
             </span>
             <p className={`texto ${ (objeto.valor.completo) ? 'textotachado' : ''}`}>{objeto.valor.texto}</p>
-            <span className="eliminar" onClick={objeto.onBorrar}>X</span>
+            <img src={eliminar} className="eliminar" onClick={objeto.onBorrar} alt="Icono para la accion de borrar"/>
         </li>
     );
 }

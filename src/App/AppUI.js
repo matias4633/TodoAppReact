@@ -11,7 +11,7 @@ import { Modal } from "../Modal/Modal";
 
 
 function AppUI() {
-    const { error, loading, buscados, completarTodo, borrarTodo,openModal,setOpenModal } = React.useContext(Contexto);
+    const { error, loading, buscados, completarTodo, borrarTodo,openModal,setOpenModal , valorBusqueda } = React.useContext(Contexto);
     
     return (
         <React.Fragment> {/* Etiqueta invisible entre comillas. Es necesaria para contener al componente que devuelve */}
@@ -25,8 +25,8 @@ function AppUI() {
             <TodoList >
                 {error && <p>Hubo un error..</p>}
                 {loading && <p>Estamos cargando, no desesperes...</p>}
-                {(!loading && !buscados.length) && <p>Crea tu primer TODO!</p>}
-
+                {(!loading && !buscados.length && !valorBusqueda.length > 0) && <p>No hay recordatorios</p>}
+                {!buscados.length && valorBusqueda.length > 0 && <p>No se encontraron resultados</p> }
 
                 {buscados.map(objeto => {
                     return (<TodoItem
@@ -43,7 +43,7 @@ function AppUI() {
             
             {openModal===true && <Modal><TodoForm/></Modal> }
 
-            <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal}  />
+            {!loading && <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal}  />}
 
         </React.Fragment>
     );

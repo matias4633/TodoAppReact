@@ -9,17 +9,17 @@ function TodoSearch(){ //Forma de recibir parametros.
 
     //const [valorBusqueda,setValorBusqueda] = React.useState('Matias');
     
-    const {setValorBusqueda}=React.useContext(Contexto);
+    const {setValorBusqueda , totalTodos }=React.useContext(Contexto);
 
     const buscar = (event) =>{
         setValorBusqueda(event.target.value);
     } 
-    
+    let placeHolder = totalTodos ? 'Encuentra tu recordatorio' : 'Crea tu primer pendiente!';
     return [
         <div className="contenedor">
             <input
                 onChange={buscar}
-                placeholder="Ladrillo"
+                placeholder={placeHolder}
             ></input>
         </div>
         /* ,

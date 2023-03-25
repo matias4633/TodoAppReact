@@ -2,6 +2,9 @@ li{
     width: 80%;
     position: relative;
 }
+p{
+    word-wrap: break-word;
+}
 .texto{
     padding: 24px;
     background-color: white;
@@ -12,8 +15,8 @@ li{
 }
 .complete{
     position: absolute;
-    top: 40%;
-    left: 40px;
+    top: 1%;
+    left: 5px;
     font-weight: bold;
     cursor: pointer;
     font-size: 2rem;
@@ -23,13 +26,12 @@ li{
     color: green;
 }
 .eliminar{
-    font-size: large;
-    font-weight: bold;
     position: absolute;
     top: 3px;
-    right: 40px;
+    right: 11px;
     cursor: pointer;
+    width: 20px;
 }
 .eliminar:hover{
-    color: red;
+    box-shadow: 4px 2px 42px 7px rgba(179,166,166,0.75);
 }
