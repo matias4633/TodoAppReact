@@ -1,5 +1,7 @@
 import React from "react";
 import {useLocalStorage} from './useLocalStorage'
+import {useSpring , animated} from 'react-spring'
+// import { usePrev } from "@react-spring/shared";
 
 const Contexto = React.createContext();
 
@@ -53,6 +55,37 @@ function Provider(props) {
         saveTodos(nuevosTodos);
     }
 
+    const efectoOpacidad = useSpring({
+        opacity:1, 
+        from:{
+            opacity:0
+        },
+        config:{
+            duration:2000,
+            delay:1000
+        }
+    });
+    const efectoRebote = useSpring({
+        to: async (next, cancel)=>{
+            let cont =0;
+            while(cont < 3){
+                await next({ transform : 'translateY(0px'});
+                await next({ transform : 'translateY(50px'});
+                await next({ transform : 'translateY(0px'});
+                await next({ transform : 'translateY(-50px'});
+                cont++;
+            }
+            cancel();
+        },
+        from: {
+            transform: 'translateY(0px)'
+        },
+        config: {
+            duration : 2000,
+            delay : 1000
+        }
+    });
+    
     return (
         <Contexto.Provider value={{
             loading,
@@ -66,7 +99,10 @@ function Provider(props) {
             borrarTodo,
             anadirTodo,
             openModal,
-            setOpenModal
+            setOpenModal,
+            efectoOpacidad,
+            animated,
+            efectoRebote
         }}>
             {props.children}
         </Contexto.Provider>

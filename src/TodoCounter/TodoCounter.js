@@ -3,12 +3,12 @@ import './TodoCounter.css';
 import { Contexto } from '../TodoContext/TodoContext';
 
 function TodoCounter() {
-    const { totalTodos, completados } = React.useContext(Contexto);
+    const { totalTodos, completados , efectoOpacidad , animated , efectoRebote} = React.useContext(Contexto);
     let logo=require('../images/logo.png');
     
     return (
         <div className="contendor-logo-counter">
-            <img src={logo} alt="logo" className="logo"></img>
+            <animated.img style={efectoOpacidad} src={logo} alt="logo" className="logo"></animated.img>
             { !(totalTodos === 0) && <h2 className="subtitulo">Completaste {completados} de {totalTodos} pendientes</h2>}
             { totalTodos === 0 && <h2 className="subtitulo" >Te ayudare a recordar!</h2> }
         </div>
